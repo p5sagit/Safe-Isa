@@ -1,6 +1,6 @@
 use strict;
 use warnings FATAL => 'all';
-use Test::More;
+use Test::More qw(no_plan);
 
 { package Foo; sub new { bless({}, $_[0]) } }
 { package Bar; our @ISA = qw(Foo); sub bar { 1 } }
@@ -32,5 +32,3 @@ ok(eval { $blam->$_can('bar'); 1 }, 'no boom today');
 ok($foo->$_call_if_object(isa => 'Foo'), 'foo $_call_if_object(isa => Foo)');
 ok($bar->$_call_if_object(isa => 'Foo'), 'bar $_call_if_object(isa => Foo)');
 ok(eval { $blam->$_call_if_object(isa => 'Foo'); 1 }, 'no boom today');
-
-done_testing;
