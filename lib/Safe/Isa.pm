@@ -69,9 +69,9 @@ And just in case we missed a method:
 
 Or to re-use a previous example for purposes of explication:
 
-  $foo->$_call_if_method(isa => 'Foo');  # true
-  $bar->$_call_if_method(isa => 'Foo');  # true
-  $blam->$_call_if_method(isa => 'Foo'); # false, no boom today
+  $foo->$_call_if_object(isa => 'Foo');  # true
+  $bar->$_call_if_object(isa => 'Foo');  # true
+  $blam->$_call_if_object(isa => 'Foo'); # false, no boom today
 
 =head1 DESCRIPTION
 
