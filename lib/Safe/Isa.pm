@@ -133,9 +133,9 @@ returns nothing.
 If called on an object, calls C<DOES> on it and returns the result, otherwise
 returns nothing.
 
-=head2 $_call_if_method
+=head2 $_call_if_object
 
-  $maybe_an_object->$_call_if_method(method_name => @args);
+  $maybe_an_object->$_call_if_object(method_name => @args);
 
 If called on an object, calls C<method_name> on it and returns the result,
 otherwise returns nothing.
