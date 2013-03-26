@@ -5,6 +5,6 @@ use ExtUtils::MakeMaker;
 (do 'maint/Makefile.PL.include' or die $@) unless -f 'META.yml';
 
 WriteMakefile(
-  NAME => 'Safe-Isa',
+  NAME => 'Safe::Isa',
   VERSION_FROM => 'lib/Safe/Isa.pm',
 );
