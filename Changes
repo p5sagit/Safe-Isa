@@ -1,12 +1,14 @@
-1.000003 - 2013-03-25
+Revision history for Safe-Isa
+
+1.000003   2013-03-25
   - fix NAME in Makefile.PL (RT#84212)
 
-1.000002 - 2012-07-19
+1.000002   2012-07-19
   - Document why we don't try and handle class namesZ
   - Missed another stupid doc typo (thanks MJD)
 
-1.000001 - 2012-07-18
+1.000001   2012-07-18
   - Fix stupid doc typo (thanks miyagawa)
 
-1.000000 - 2012-07-18
+1.000000   2012-07-18
   - Initial release
