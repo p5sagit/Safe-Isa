@@ -14,8 +14,15 @@ WriteMakefile(
 
     resources => {
       # r/w: p5sagit@git.shadowcat.co.uk:Safe-Isa.git
-      repository => 'git://git.shadowcat.co.uk/p5sagit/Safe-Isa.git',
-      homepage => 'http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=p5sagit/Safe-Isa.git',
+      repository => {
+        url => 'git://git.shadowcat.co.uk/p5sagit/Safe-Isa.git',
+        web => 'http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=p5sagit/Safe-Isa.git',
+        type => 'git',
+      },
+      bugtracker => {
+          mailto => 'bug-Safe-Isa@rt.cpan.org',
+          web => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Safe-Isa',
+      },
     },
 
     PREREQ_PM => {
