@@ -1,6 +1,6 @@
 use strict;
 use warnings FATAL => 'all';
-use Test::More qw(no_plan);
+use Test::More tests => 15;
 
 { package Foo; sub new { bless({}, $_[0]) } }
 { package Bar; our @ISA = qw(Foo); sub bar { 1 } }
