@@ -106,7 +106,7 @@ is equivalent to
 Note that we don't handle trying class names, because many things are valid
 class names that you might not want to treat as one (like say "Matt") - the
 C<is_module_name> function from L<Module::Runtime> is a good way to check for
-somthing you might be able to call methods on if you want to do that.
+something you might be able to call methods on if you want to do that.
 
 =head1 EXPORTS
 
