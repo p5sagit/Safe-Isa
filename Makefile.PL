@@ -26,7 +26,7 @@ WriteMakefile(
     },
 
     PREREQ_PM => {
-      'Exporter' => 0,
+      'Exporter' => '5.57',
       'Scalar::Util' => 0,
     },
   },

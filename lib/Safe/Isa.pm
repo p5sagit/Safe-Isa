@@ -3,7 +3,7 @@ package Safe::Isa;
 use strict;
 use warnings FATAL => 'all';
 use Scalar::Util qw(blessed);
-use base qw(Exporter);
+use Exporter 5.57 qw(import);
 
 our $VERSION = '1.000003';
 
