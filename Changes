@@ -1,5 +1,7 @@
 Revision history for Safe-Isa
 
+  - fixed slightly mangled metadata from last release
+
 1.000003   2013-03-25
   - fix NAME in Makefile.PL (RT#84212)
 

@@ -8,26 +8,28 @@ WriteMakefile(
   NAME => 'Safe::Isa',
   VERSION_FROM => 'lib/Safe/Isa.pm',
 
-  META_MERGE => {
-    'meta-spec' => { version => 2 },
-    dynamic_config => 0,
-
-    resources => {
-      # r/w: p5sagit@git.shadowcat.co.uk:Safe-Isa.git
-      repository => {
-        url => 'git://git.shadowcat.co.uk/p5sagit/Safe-Isa.git',
-        web => 'http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=p5sagit/Safe-Isa.git',
-        type => 'git',
-      },
-      bugtracker => {
-          mailto => 'bug-Safe-Isa@rt.cpan.org',
-          web => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Safe-Isa',
-      },
-    },
-
-    PREREQ_PM => {
-      'Exporter' => '5.57',
-      'Scalar::Util' => 0,
-    },
+  PREREQ_PM => {
+    'Exporter' => '5.57',
+    'Scalar::Util' => 0,
   },
+
+  -f 'META.yml' ? () : (
+    META_MERGE => {
+      'meta-spec' => { version => 2 },
+      dynamic_config => 0,
+
+      resources => {
+        # r/w: p5sagit@git.shadowcat.co.uk:Safe-Isa.git
+        repository => {
+          url => 'git://git.shadowcat.co.uk/p5sagit/Safe-Isa.git',
+          web => 'http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=p5sagit/Safe-Isa.git',
+          type => 'git',
+        },
+        bugtracker => {
+            mailto => 'bug-Safe-Isa@rt.cpan.org',
+            web => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Safe-Isa',
+        },
+      },
+    },
+  ),
 );
