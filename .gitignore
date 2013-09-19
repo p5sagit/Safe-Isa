@@ -1,0 +1,12 @@
+/.build/
+!.gitignore
+/Safe-Isa-*
+/Distar
+/MANIFEST.SKIP
+/MANIFEST.bak
+/MYMETA.json
+/MYMETA.yml
+/Makefile
+/Makefile.old
+/blib/
+/pm_to_blib
