@@ -8,6 +8,8 @@ WriteMakefile(
   NAME => 'Safe::Isa',
   VERSION_FROM => 'lib/Safe/Isa.pm',
 
+  MIN_PERL_VERSION => '5.006',
+
   PREREQ_PM => {
     'Exporter' => '5.57',
     'Scalar::Util' => 0,
