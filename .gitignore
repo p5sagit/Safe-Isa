@@ -2,6 +2,7 @@
 !.gitignore
 /Safe-Isa-*
 /Distar
+/MANIFEST
 /MANIFEST.SKIP
 /MANIFEST.bak
 /MYMETA.json
