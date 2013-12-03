@@ -17,7 +17,7 @@ our $_call_if_object = sub {
 
 our $_call_if_object_or_classname = sub {
   my ($thing, $method) = (shift, shift);
-  return unless blessed($thing) or do {
+  return unless blessed($thing) or defined($thing) and do {
     no strict 'refs';
     %{"main::${thing}::"}
   };
