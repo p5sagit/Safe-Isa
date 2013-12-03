@@ -7,7 +7,7 @@ Revision history for Safe-Isa
   - fix NAME in Makefile.PL (RT#84212)
 
 1.000002   2012-07-19
-  - Document why we don't try and handle class namesZ
+  - Document why we don't try and handle class names
   - Missed another stupid doc typo (thanks MJD)
 
 1.000001   2012-07-18
