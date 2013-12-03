@@ -7,7 +7,7 @@ use Exporter 5.57 qw(import);
 
 our $VERSION = '1.000004';
 
-our @EXPORT = qw($_call_if_object $_isa $_can $_does $_DOES);
+our @EXPORT = qw($_call_if_object $_call_if_object_or_classname $_isa $_can $_does $_DOES);
 
 our $_call_if_object = sub {
   my ($obj, $method) = (shift, shift);
@@ -15,14 +15,23 @@ our $_call_if_object = sub {
   return $obj->$method(@_);
 };
 
+our $_call_if_object_or_classname = sub {
+  my ($thing, $method) = (shift, shift);
+  return unless blessed($thing) or do {
+    no strict 'refs';
+    %{"main::${thing}::"}
+  };
+  return $thing->$method(@_);
+};
+
 our ($_isa, $_can, $_does, $_DOES) = map {
   my $method = $_;
-  sub { my $obj = shift; $obj->$_call_if_object($method => @_) }
+  sub { my $obj = shift; $obj->$_call_if_object_or_classname($method => @_) }
 } qw(isa can does DOES);
 
 =head1 NAME
 
-Safe::Isa - Call isa, can, does and DOES safely on things that may not be objects
+Safe::Isa - Call isa, can, does and DOES safely on arbitrary things
 
 =head1 SYNOPSIS
 
@@ -34,16 +43,19 @@ Safe::Isa - Call isa, can, does and DOES safely on things that may not be object
   
   my $foo = Foo->new;
   my $bar = Bar->new;
+  my $class = 'Bar';
   my $blam = [ 42 ];
   
   # basic isa usage -
   
   $foo->isa('Foo');  # true
   $bar->isa('Foo');  # true
+  $class->isa('Foo') # true
   $blam->isa('Foo'); # BOOM
   
   $foo->can('bar');  # false
   $bar->can('bar');  # true
+  $class->can('bar); # true
   $blam->can('bar'); # BOOM
   
   # Safe::Isa usage -
@@ -52,10 +64,12 @@ Safe::Isa - Call isa, can, does and DOES safely on things that may not be object
   
   $foo->$_isa('Foo');  # true
   $bar->$_isa('Foo');  # true
+  $class->isa('Foo')   # true
   $blam->$_isa('Foo'); # false, no boom today
   
   $foo->$_can('bar');  # false
   $bar->$_can('bar');  # true
+  $class->can('bar);   # true
   $blam->$_can('bar'); # false, no boom today
 
 Similarly:
@@ -66,6 +80,10 @@ Similarly:
 And just in case we missed a method:
 
   $maybe_an_object->$_call_if_object(name => @args);
+
+or this might be closer to what you want:
+
+  $maybe_a_referent->$_call_if_object_or_class(name => @args);
 
 Or to re-use a previous example for purposes of explication:
 
