@@ -11,6 +11,9 @@ our @EXPORT = qw($_call_if_object $_isa $_can $_does $_DOES);
 
 our $_call_if_object = sub {
   my ($obj, $method) = (shift, shift);
+  # This is intentionally a truth test, not a defined test, otherwise
+  # we gratuitously break modules like Scalar::Defer, which would be
+  # un-perlish.
   return unless blessed($obj);
   return $obj->$method(@_);
 };
