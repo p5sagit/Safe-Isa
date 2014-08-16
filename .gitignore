@@ -1,6 +1,8 @@
+/.ackrc
 /.build/
-!.gitignore
-/Safe-Isa-*
+!/.gitignore
+/Safe-Isa-*/
+/Safe-Isa-*.tar.gz
 /Distar
 /MANIFEST
 /MANIFEST.SKIP
