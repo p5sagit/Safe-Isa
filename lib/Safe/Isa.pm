@@ -148,6 +148,11 @@ returns nothing.
 If called on an object, calls C<method_name> on it and returns the result,
 otherwise returns nothing.
 
+=head1 SEE ALSO
+
+I gave a lightning talk on this module (and L<curry> and L<Import::Into>) at
+L<YAPC::NA 2013|https://www.youtube.com/watch?v=wFXWV2yY7gE&t=46m05s>.
+
 =head1 AUTHOR
 
 mst - Matt S. Trout (cpan:MSTROUT) <mst@shadowcat.co.uk>
