@@ -40,6 +40,11 @@ my %WriteMakefileArgs = (
           perl => '5.006',
         },
       },
+      test => {
+        requires => {
+          'Test::More' => '0',
+        },
+      },
     },
   },
 
