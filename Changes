@@ -1,5 +1,6 @@
 Revision history for Safe-Isa
 
+1.000005 - 2014-08-16
   - comment blessed use so people who don't know perl stop trying to break it
   - add link to lightning talk given at YAPC::NA 2013
 
