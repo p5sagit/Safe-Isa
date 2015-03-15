@@ -23,6 +23,11 @@ our ($_isa, $_can, $_does, $_DOES) = map {
   sub { my $obj = shift; $obj->$_call_if_object($method => @_) }
 } qw(isa can does DOES);
 
+1;
+__END__
+
+=pod
+
 =head1 NAME
 
 Safe::Isa - Call isa, can, does and DOES safely on things that may not be objects
