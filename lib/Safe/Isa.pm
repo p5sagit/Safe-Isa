@@ -15,6 +15,7 @@ our $_call_if_object = sub {
   # we gratuitously break modules like Scalar::Defer, which would be
   # un-perlish.
   return unless blessed($obj);
+  return $obj->isa(@_) if lc($method) eq 'does' and not $obj->can($method);
   return $obj->$method(@_);
 };
 

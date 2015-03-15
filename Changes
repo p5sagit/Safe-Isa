@@ -1,5 +1,9 @@
 Revision history for Safe-Isa
 
+  - now falling back to $obj->isa if DOES/does is not implemented on the
+    object, to avoid fatal errors on perls too old to have their own DOES
+    (RT#100866)
+
 1.000005 - 2014-08-16
   - comment blessed use so people who don't know perl stop trying to break it
   - add link to lightning talk given at YAPC::NA 2013
