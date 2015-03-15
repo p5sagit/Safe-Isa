@@ -1,5 +1,5 @@
 use strict;
-use warnings FATAL => 'all';
+use warnings;
 use Test::More tests => 20;
 
 { package Foo; sub new { bless({}, $_[0]) } }
