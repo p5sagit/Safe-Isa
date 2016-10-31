@@ -1,5 +1,6 @@
 Revision history for Safe-Isa
 
+1.000006 - 2016-10-31
   - now falling back to $obj->isa if DOES/does is not implemented on the
     object, to avoid fatal errors on perls too old to have their own DOES
     (RT#100866)
