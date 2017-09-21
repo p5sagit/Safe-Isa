@@ -2,7 +2,7 @@ package Safe::Isa;
 
 use strict;
 use warnings FATAL => 'all';
-use Scalar::Util qw(blessed);
+use Scalar::Util ();
 use Exporter 5.57 qw(import);
 
 our $VERSION = '1.000006';
@@ -14,7 +14,7 @@ our $_call_if_object = sub {
   # This is intentionally a truth test, not a defined test, otherwise
   # we gratuitously break modules like Scalar::Defer, which would be
   # un-perlish.
-  return unless blessed($obj);
+  return unless Scalar::Util::blessed($obj);
   return $obj->isa(@_) if lc($method) eq 'does' and not $obj->can($method);
   return $obj->$method(@_);
 };
