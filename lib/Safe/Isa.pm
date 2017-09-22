@@ -26,7 +26,7 @@ our ($_isa, $_can, $_does, $_DOES) = map {
 
 our $_call_if_can = sub {
   my ($obj, $method) = (shift, shift);
-  $obj->$_call_if_object(can => $method) && $obj->$_call_if_object($method => @_);
+  $obj->$_call_if_object(can => $method) && $obj->$method(@_);
 };
 
 1;
