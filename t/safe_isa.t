@@ -1,9 +1,9 @@
 use strict;
 use warnings;
-use Test::More tests => 26;
+use Test::More tests => 28;
 
 { package Foo; sub new { bless({}, $_[0]) } }
-{ package Bar; our @ISA = qw(Foo); sub bar { 1 } }
+{ package Bar; our @ISA = qw(Foo); sub bar { $_[1] } }
 
 my $foo = Foo->new;
 my $bar = Bar->new;
@@ -37,5 +37,7 @@ ok(eval { is($undef->$_can('bar'), undef, 'undef can\'t bar either'); 1 }, 'and 
 
 ok($foo->$_call_if_object(isa => 'Foo'), 'foo $_call_if_object(isa => Foo)');
 ok($bar->$_call_if_object(isa => 'Foo'), 'bar $_call_if_object(isa => Foo)');
+is($bar->$_call_if_object(bar => ), undef, 'bar $_call_if_object(bar => undef)');
+is($bar->$_call_if_object(bar => 2), 2, 'bar $_call_if_object(bar => 2)');
 ok(eval { is($blam->$_call_if_object(isa => 'Foo'), undef, 'blam can\'t call anything'); 1 }, 'no boom today');
 ok(eval { is($undef->$_call_if_object(isa => 'Foo'), undef, 'undef can\'t call anything'); 1 }, 'and no boom tomorrow either');
