@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 28;
+use Test::More tests => 38;
 
 { package Foo; sub new { bless({}, $_[0]) } }
 { package Bar; our @ISA = qw(Foo); sub bar { $_[1] } }
@@ -41,3 +41,11 @@ is($bar->$_call_if_object(bar => ), undef, 'bar $_call_if_object(bar => undef)')
 is($bar->$_call_if_object(bar => 2), 2, 'bar $_call_if_object(bar => 2)');
 ok(eval { is($blam->$_call_if_object(isa => 'Foo'), undef, 'blam can\'t call anything'); 1 }, 'no boom today');
 ok(eval { is($undef->$_call_if_object(isa => 'Foo'), undef, 'undef can\'t call anything'); 1 }, 'and no boom tomorrow either');
+
+ok($foo->$_call_if_can(isa => 'Foo'), 'foo $_call_if_can(isa => Foo)');
+ok($bar->$_call_if_can(isa => 'Foo'), 'bar $_call_if_can(isa => Foo)');
+ok(eval { is($foo->$_call_if_can(bar => ), undef, 'foo can\'t call bar'); 1 }, 'no boom today');
+is($bar->$_call_if_can(bar => ), undef, 'bar $_call_if_can(bar => ');
+is($bar->$_call_if_can(bar => 2), 2, 'bar $_call_if_can(bar => 2');
+ok(eval { is($blam->$_call_if_can(isa => 'Foo'), undef, 'blam can\'t call anything'); 1 }, 'no boom today');
+ok(eval { is($undef->$_call_if_can(isa => 'Foo'), undef, 'undef can\'t call anything'); 1 }, 'and no boom tomorrow either');
