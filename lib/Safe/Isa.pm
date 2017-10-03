@@ -26,7 +26,8 @@ our ($_isa, $_can, $_does, $_DOES) = map {
 
 our $_call_if_can = sub {
   my ($obj, $method) = (shift, shift);
-  $obj->$_call_if_object(can => $method) && $obj->$method(@_);
+  return unless $obj->$_call_if_object(can => $method);
+  return $obj->$method(@_);
 };
 
 1;
@@ -122,6 +123,9 @@ Note that we don't handle trying class names, because many things are valid
 class names that you might not want to treat as one (like say "Matt") - the
 C<is_module_name> function from L<Module::Runtime> is a good way to check for
 something you might be able to call methods on if you want to do that.
+
+We are careful to make sure that scalar/list context is preserved for the
+method that is eventually called.
 
 =head1 EXPORTS
 

@@ -1,5 +1,7 @@
 Revision history for Safe-Isa
 
+  - fix scalar/list context handling for $_call_if_can
+
 1.000007 - 2017-09-22
   - added new interface: $obj->$_call_if_can
 
