@@ -160,14 +160,17 @@ returns nothing.
   $maybe_an_object->$_does('Foo');
 
 If called on an object, calls C<does> on it and returns the result, otherwise
-returns nothing.
+returns nothing. If the C<does> method does not exist, returns nothing rather
+than failing.
 
 =head2 $_DOES
 
   $maybe_an_object->$_DOES('Foo');
 
 If called on an object, calls C<DOES> on it and returns the result, otherwise
-returns nothing.
+returns nothing. On perl versions prior to 5.10.0, the built in core C<DOES>
+method doesn't exist. If the method doesn't exist, this will fall back to
+calling C<isa> just like the core C<DOES> method.
 
 =head2 $_call_if_object
 
