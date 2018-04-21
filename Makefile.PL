@@ -11,12 +11,15 @@ my %WriteMakefileArgs = (
   META_MERGE => {
       'meta-spec' => { version => 2 },
       dynamic_config => 0,
-
       resources => {
+        # GitHub mirrors from Shadowcat. We list it so we can get pull requests.
+        # The canonical repo is:
+        # r/o: git://git.shadowcat.co.uk/p5sagit/Safe-Isa.git
         # r/w: p5sagit@git.shadowcat.co.uk:Safe-Isa.git
+        # web: http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=p5sagit/Safe-Isa.git
         repository => {
-          url => 'git://git.shadowcat.co.uk/p5sagit/Safe-Isa.git',
-          web => 'http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=p5sagit/Safe-Isa.git',
+          url => 'https://github.com/p5sagit/Safe-Isa.git',
+          web => 'https://github.com/p5sagit/Safe-Isa',
           type => 'git',
         },
         bugtracker => {
