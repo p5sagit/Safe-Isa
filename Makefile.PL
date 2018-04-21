@@ -27,6 +27,12 @@ my %WriteMakefileArgs = (
             web => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Safe-Isa',
         },
       },
+      x_contributors => [ # manually added, from git shortlog -e -s -n
+        'Karen Etheridge <ether@cpan.org>',
+        'Matt S Trout <mst@shadowcat.co.uk>',
+        'Graham Knop <haarg@haarg.org>',
+        'David Steinbrunner <dsteinbrunner@pobox.com>',
+      ],
   },
 
   META_ADD => {
